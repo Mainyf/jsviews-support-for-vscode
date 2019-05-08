@@ -1,0 +1,23 @@
+{
+    "name": "jsviews",
+    "displayName": "jsviews",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "grammars": [
+            {
+                "path": "./syntaxes/injection.json",
+                "scopeName": "jsviews.injection",
+                "injectTo": [
+                    "text.html.derivative"
+                ]
+            }
+        ]
+    }
+}

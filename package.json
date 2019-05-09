@@ -3,6 +3,11 @@
     "displayName": "jsviews",
     "description": "",
     "version": "0.0.1",
+    "publisher": "Mainyf",
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/Mainyf/jsviews-support-for-vscode"
+    },
     "engines": {
         "vscode": "^1.33.0"
     },

@@ -257,7 +257,7 @@
         },
         "jsviews-script": {
             "name": "jsviews.script",
-            "begin": "(<)(script).*(type)(=)(\"text\\/x-jsrender\".*)(>)",
+            "begin": "(<)(script).*(type)(=)(\"text\\/x-jsrender\")(>)",
             "beginCaptures": {
                 "1": {
                     "name": "punctuation.definition.tag.begin.html"

@@ -1,5 +1,5 @@
-import os from 'os';
-import some from 'lodash/some';
+import os = require('os');
+import some = require('lodash/some');
 
 export function convertEnter(originText: string): string[] {
     return originText ? originText.split(os.EOL) : [];

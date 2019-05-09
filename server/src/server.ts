@@ -1,6 +1,7 @@
 import { createConnection, ProposedFeatures, TextDocuments, InitializeParams, DidChangeConfigurationNotification, Diagnostic, DiagnosticSeverity, TextDocument, TextDocumentPositionParams, CompletionItem, CompletionItemKind } from 'vscode-languageserver';
 import has = require('lodash/has');
-import ExpressionCompletion from './completions/expression';
+import JsRenderScriptTypeCompletion from "./completions/jsrenderScriptType";
+import IFExpressionCompletion from './completions/ifExpression';
 
 let connection = createConnection(ProposedFeatures.all);
 
@@ -132,7 +133,8 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 }
 
 const completions = [
-	new ExpressionCompletion()
+	new IFExpressionCompletion(connection),
+	new JsRenderScriptTypeCompletion(connection)
 ];
 
 const languageIdList = ['html'];
@@ -141,7 +143,7 @@ connection.onCompletion(
 	(params: TextDocumentPositionParams): CompletionItem[] => {
 		console.log(completions);
 		const doc = documents.get(params.textDocument.uri)!;
-		if(!doc || !languageIdList.includes(doc.languageId)) {
+		if(!doc || languageIdList.indexOf(doc.languageId) === -1) {
 			return [];
 		}
 		let result: CompletionItem[] = [];
